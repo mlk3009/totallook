@@ -147,4 +147,4 @@ INSERT INTO `productos` (`Nombre`, `idCategoria`, `Precio`, `Stock`, `Color`, `T
 ('Canguro Jordan v2', 5, 1990, 3, 'Gris', 'M', 'Activo','/totallook/imagenes/imagenesProductos/Buzo jordan.png'),
 ('Canguro Jordan v2', 5, 1990, 3, 'Negro', 'M', 'Activo','/totallook/imagenes/imagenesProductos/Buzo jordan.png'),
 ('Canguro Jordan v2', 5, 1990, 3, 'Gris', 'L', 'Activo','/totallook/imagenes/imagenesProductos/Buzo jordan.png'),
-('Canguro Jordan v2', 5, 1990, 3, 'Negro', 'L', 'Activo','/totallook/imagenes/imagenesProductos/Buzo jordan.png'),
+('Canguro Jordan v2', 5, 1990, 3, 'Negro', 'L', 'Activo','/totallook/imagenes/imagenesProductos/Buzo jordan.png');
