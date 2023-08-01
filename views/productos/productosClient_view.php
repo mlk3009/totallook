@@ -184,7 +184,6 @@
 
 
     <main>
-        <h1>Lista de articulos</h1>
         <div class="product_container">
             <?php
             //Recorremos el array para ir mostrando fila a fila los registros
