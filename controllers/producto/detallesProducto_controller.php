@@ -72,7 +72,7 @@ if (isset($_POST['cerrar'])) {
 if (isset($_POST['volverInicio'])) {
     session_start();
     $_SESSION['usuario'] = $idUsuario;
-    header('Location: /proyectoprogramacion');
+    header('Location: /totallook/');
     exit();
 }
 
