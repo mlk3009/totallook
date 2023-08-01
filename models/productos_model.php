@@ -51,15 +51,30 @@ class productos_model
 
 	public function getTipoUsuario($idUsuario)
 	{
-		$query = "SELECT Tipo FROM Usuarios WHERE idUsuario = $idUsuario";
-		$consulta = $this->db->query($query);
+		$query = "SELECT Tipo FROM Usuarios WHERE idUsuario = ?";
+		$consulta = $this->db->prepare($query);
+
 		if ($consulta) {
-			$fila = $consulta->fetch_assoc();
-			$tipoUsuario = $fila['Tipo'];
-			$consulta->free_result();
-			return $tipoUsuario;
+			$consulta->bind_param('i', $idUsuario);
+			$consulta->execute();
+			$consulta->store_result();
+
+			if ($consulta->num_rows > 0) {
+				$consulta->bind_result($tipoUsuario);
+				$consulta->fetch();
+				$consulta->free_result();
+				$consulta->close();
+				return $tipoUsuario;
+			} else {
+				$consulta->close();
+				// No se encontraron resultados
+				return null;
+			}
+		} else {
+			// Error en la consulta preparada
+			echo "Error en la consulta: " . $this->db->error;
+			return null;
 		}
-		return null;
 	}
 
 	public function getAprobacion($idUsuario)

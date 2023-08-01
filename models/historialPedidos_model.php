@@ -10,17 +10,33 @@ class pedido_model{
         $this->producto = array();
     }
 
-    public function getIdPedido($idUsuario){
-        $sql = "SELECT idPedido FROM pedidos WHERE idUsuario = '$idUsuario'";
-        $consulta = $this->db->query($sql);
+    public function getIdPedido($idUsuario) {
+        $query = "SELECT idPedido FROM pedidos WHERE idUsuario = ?";
+        $consulta = $this->db->prepare($query);
+    
         if ($consulta) {
-            $fila = $consulta->fetch_assoc();
-            $idPedido = $fila['idPedido'];
-            $consulta->free_result();
-            return $idPedido;
+            $consulta->bind_param('i', $idUsuario);
+            $consulta->execute();
+            $consulta->store_result();
+    
+            if ($consulta->num_rows > 0) {
+                $consulta->bind_result($idPedido);
+                $consulta->fetch();
+                $consulta->free_result();
+                $consulta->close();
+                return $idPedido;
+            } else {
+                $consulta->close();
+                // No se encontraron resultados
+                return null;
+            }
+        } else {
+            // Error en la consulta preparada
+            echo "Error en la consulta: " . $this->db->error;
+            return null;
         }
-        return null;
     }
+    
 
     public function getPedidosList($idUsuario){
         $sql =" 
@@ -47,4 +63,3 @@ public function bajaPedido($idPedido){
 
 
 }
-?>
