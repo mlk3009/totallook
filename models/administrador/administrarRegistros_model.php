@@ -39,11 +39,16 @@ class administrarRegistros_model
     {
         // Actualizar el valor de 'Aceptado' a true
         $sql = "UPDATE Usuarios SET Aceptado = true WHERE idUsuario = ?";
-        $query = "INSERT INTO Pedidos (Estado, idUsuario) VALUES ('Iniciado', ?)";
-        $consulta = $this->db->prepare($sql, $query);
+        $consulta = $this->db->prepare($sql);
         $consulta->bind_param("i", $idUsuario);
         $consulta->execute();
         $consulta->close();
+
+        $query = "INSERT INTO Pedidos (Estado, idUsuario) VALUES ('Iniciado', ?)";
+        $consulta2 = $this->db->prepare($query);
+        $consulta2->bind_param("i", $idUsuario);
+        $consulta2->execute();
+        $consulta2->close();
 
         if ($consulta) {
             return true;
