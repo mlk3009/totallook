@@ -1,49 +1,49 @@
 <?php
-	require_once("../../models/carrito_model.php");
+require_once("../../models/carrito_model.php");
 
-    $carrito = new carrito_model();
+$carrito = new carrito_model();
 
+session_start();
+if (isset($_SESSION['pedido'])) {
+    $idPedido = $_SESSION['pedido'];
+}
+
+// Obtener los productos del modelo pasando el idPedido
+$productos = $carrito->abrirCarrito($idPedido);
+
+// Eliminar un producto del carrito
+if (isset($_POST['eliminarProducto'])) {
+    $idProducto = $_POST['eliminarProducto'];
+    echo $idPedido;
+    $productos = $carrito->eliminarProductoCarrito($idPedido, $idProducto);
+}
+
+if (isset($_POST['volverInicio'])) {
+    $idUsuario = $carrito->getIdUsuario($idPedido);
     session_start();
-	if (isset($_SESSION['pedido'])) {
-		$idPedido = $_SESSION['pedido'];
-	}
+    $_SESSION['oculto'] = $idUsuario;
+    header('location: /');
+    exit();
+}
 
-    // Obtener los productos del modelo pasando el idPedido
-    $productos = $carrito->abrirCarrito($idPedido);
+if (isset($_POST['cancelarPedido'])) {
+    $idUsuario = $carrito->getIdUsuario($idPedido);
+    $carrito->cancelarpedido($idPedido);
+    session_start();
+    $_SESSION['oculto'] = $idUsuario;
+    header('location: /');
+    exit();
+}
 
-    // Eliminar un producto del carrito
-    if (isset($_POST['eliminarProducto'])) {
-        $idProducto = $_POST['eliminarProducto'];
-        echo $idPedido;
-        $productos = $carrito->eliminarProductoCarrito($idPedido, $idProducto);
-    }
-
-    if(isset($_POST['volverInicio'])){
-        $idUsuario = $carrito->getIdUsuario($idPedido);
-        session_start();
-		$_SESSION['oculto'] = $idUsuario;
-        header('location: /totallook/');
-		exit();
-    }
-
-    if(isset($_POST['cancelarPedido'])){
-        $idUsuario = $carrito->getIdUsuario($idPedido);
-        $carrito->cancelarpedido($idPedido);
-        session_start();
-		$_SESSION['oculto'] = $idUsuario;
-        header('location: /totallook/');
-		exit();
-    }
-
-    if(isset($_POST['ordenarPedido'])){
-        $idUsuario = $carrito->getIdUsuario($idPedido);
-        $carrito->confirmarPedido($idUsuario);
-        //Necesitaria confirmar que se registro el pedido
-        header('location: /totallook/');
-        exit();
-    }
+if (isset($_POST['ordenarPedido'])) {
+    $idUsuario = $carrito->getIdUsuario($idPedido);
+    $carrito->confirmarPedido($idUsuario);
+    //Necesitaria confirmar que se registro el pedido
+    header('location: /');
+    exit();
+}
 
 
 
-    // Cargar la vista
-    require_once('../../views/carrito/carrito_view.php');
+// Cargar la vista
+require_once('../../views/carrito/carrito_view.php');

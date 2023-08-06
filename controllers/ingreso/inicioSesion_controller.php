@@ -8,7 +8,7 @@ $controlador = new UsuarioModel();
 
 if (isset($_POST['volverInicio'])) {
 
-    header('location: /totallook/');
+    header('location: /');
     exit();
 }
 
@@ -20,7 +20,7 @@ if (isset($_POST['Iniciar'])) {
         $idUsuario = $controlador->obtenerId($usuario);
         session_start();
         $_SESSION['usuario'] = $idUsuario;
-        header('location: /totallook/');
+        header('location: /');
         exit();
     } else {
         echo "<script>alert('Los datos ingresados son incorrectos.');window.location.href = window.location.href;</script>";

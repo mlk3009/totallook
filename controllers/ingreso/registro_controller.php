@@ -15,7 +15,7 @@ if (isset($_POST['iniciar'])) {
 
 if (isset($_POST['volverInicio'])) {
 
-    header('location: /totallook/');
+    header('location: /');
     exit();
 }
 
@@ -31,7 +31,7 @@ if (isset($_POST['Registrar'])) {
         $idUsuario = $controlador->getIdUsuario($correo);
         session_start();
         $_SESSION['usuario'] = $idUsuario;
-        header('location: /totallook/');
+        header('location: /');
         exit();
     } else {
         echo "<script>alert('Los datos ingresados son incorrectos.');window.location.href = window.location.href;</script>";

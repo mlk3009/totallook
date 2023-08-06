@@ -65,14 +65,14 @@ if (isset($_POST['abrirCarrito'])) {
 if (isset($_POST['cerrar'])) {
     session_start();
     $_SESSION['usuario'] = '';
-    header("Location: /totallook/");
+    header("Location: /");
     exit();
 }
 
 if (isset($_POST['volverInicio'])) {
     session_start();
     $_SESSION['usuario'] = $idUsuario;
-    header('Location: /totallook/');
+    header('Location: /');
     exit();
 }
 
