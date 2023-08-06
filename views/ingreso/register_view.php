@@ -16,7 +16,7 @@
 
             <div class="logo-menu_container">
 
-                <a href="/totallook/views/productos/productos_view.php">
+                <a href="/views/productos/productos_view.php">
                     <div class="logo_container">
                     </div>
                 </a>

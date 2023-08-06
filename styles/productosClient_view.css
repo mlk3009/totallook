@@ -40,7 +40,7 @@ header{
 .menu_hamburguesa{
     height: 30px;
     width: 30px;
-    background-image: url(/proyectoprogramacion/imagenes/imagenesNavbar/menu.png);
+    background-image: url(/imagenes/imagenesNavbar/menu.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -69,7 +69,7 @@ header{
 .cuenta_icon2{
     height: 20px;
     width: 20px;
-    background-image: url(/proyectoProgramacion/imagenes/imagenesNavbar/user2.png);
+    background-image: url(/imagenes/imagenesNavbar/user2.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@ header{
 .cuenta_icon{
     height: 20px;
     width: 20px;
-    background-image: url(/proyectoProgramacion/imagenes/imagenesNavbar/pedidos.png);
+    background-image: url(/imagenes/imagenesNavbar/pedidos.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -91,7 +91,7 @@ header{
 .logo_container{
     height: 50px;
     width: 50px;
-    background: url(/proyectoProgramacion/imagenes/imagenesNavbar/logo.png);
+    background: url(/imagenes/imagenesNavbar/logo.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -170,7 +170,7 @@ header{
 .carrito_icon{
     height: 25px;
     width: 25px;
-    background-image: url(/proyectoProgramacion/imagenes/imagenesNavbar/shopping-bag.png);
+    background-image: url(/imagenes/imagenesNavbar/shopping-bag.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -245,7 +245,7 @@ header p{
 }
 
 .exit{
-    background-image: url(/proyectoProgramacion/imagenes/imagenesNavbar/close.png);
+    background-image: url(/imagenes/imagenesNavbar/close.png);
     background-size: contain;
     cursor: pointer;
     width: 12px;

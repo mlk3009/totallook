@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registros</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/totallook/styles/administrarRegistros.css">
+    <link rel="stylesheet" href="/styles/administrarRegistros.css">
 </head>
 
 <body>

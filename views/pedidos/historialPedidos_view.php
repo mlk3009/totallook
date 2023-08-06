@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/totallook/styles/historialPedidos.css">
+    <link rel="stylesheet" href="/styles/historialPedidos.css">
 </head>
 
 <body>

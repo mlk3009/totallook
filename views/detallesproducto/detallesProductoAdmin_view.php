@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/totallook/styles/detallesProducto_view.css">
+    <link rel="stylesheet" href="/styles/detallesProducto_view.css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 
                         <form action="" method="post">
                             <input type="text" name="buscador" id="buscador" placeholder="Buscar" class="buscador">
-                            <input type="image" src="/totallook/imagenes/imagenesNavbar/lupa.png" alt="Enviar formulario" class="buscador_image">
+                            <input type="image" src="/imagenes/imagenesNavbar/lupa.png" alt="Enviar formulario" class="buscador_image">
                         </form>
 
                     </div>

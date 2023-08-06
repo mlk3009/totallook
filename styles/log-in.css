@@ -57,7 +57,7 @@ header{
 .logo_container{
     height: 50px;
     width: 50px;
-    background: url(/proyectoprogramacion/imagenes/imagenesNavbar/logo.png);
+    background: url(/imagenes/imagenesNavbar/logo.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -109,7 +109,7 @@ header{
 .atras_icon{
     height: 20px;
     width: 20px;
-    background-image: url(/proyectoprogramacion/imagenes/imagenesNavbar/volver.png);
+    background-image: url(/imagenes/imagenesNavbar/volver.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;

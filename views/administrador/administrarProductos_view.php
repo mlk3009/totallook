@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Productos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/totallook/styles/administrarProductos.css">
+    <link rel="stylesheet" href="/styles/administrarProductos.css">
 </head>
 
 <body>
