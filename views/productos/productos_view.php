@@ -37,7 +37,7 @@
 
                         <form action="" method="post">
                             <input type="text" name="buscador" id="buscador" placeholder="Buscar" class="buscador">
-                            <input type="image" src="/totallook/imagenes/imagenesNavbar/lupa.png" alt="Enviar formulario" class="buscador_image">
+                            <input type="image" src="/imagenes/imagenesNavbar/lupa.png" alt="Enviar formulario" class="buscador_image">
                         </form>
 
                     </div>
