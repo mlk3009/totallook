@@ -16,7 +16,7 @@ if (isset($_SESSION['usuario'])) {
 }
 
 if (isset($_POST['registro'])) {
-	header('Location: controllers/ingreso/registro_controller.php'); //agregar para que cargue con el id
+	header('Location: controllers/ingreso/registro_controller.php');
 	exit();
 }
 
