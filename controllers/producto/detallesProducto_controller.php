@@ -1,6 +1,6 @@
 <?php
 //cargo el modelo
-require_once("../../models/detallesProducto_model.php");
+require_once("./models/detallesProducto_model.php");
 
 //objeto de la clase
 $dProducto = new detallesProducto_model();
@@ -10,12 +10,13 @@ $dProducto = new detallesProducto_model();
 session_start();
 if (isset($_SESSION['usuario'])) {
     $idUsuario = $_SESSION['usuario'];
+    $detallesProducto = $_SESSION['producto'];
 } else {
     $idUsuario = null;
 }
 
 //obtener idProducto del otro controlador
-$detallesProducto = $_GET['detallesProducto'];
+
 
 //cargar los datos del producto
 $producto = $dProducto->getProducto($detallesProducto);
@@ -26,7 +27,7 @@ $talles = $dProducto->obtenerTalles($nombreProducto);
 
 
 if (isset($_POST['iniciarSesion'])) {
-    header('Location: ../ingreso/inicioSesion_controller.php');
+    header('Location: iniciar_sesion.php');
     exit();
 }
 
@@ -52,7 +53,7 @@ if (isset($_POST['abrirCarrito'])) {
             $idPedido = $dProducto->getIdPedido($idUsuario);
             session_start();
             $_SESSION['pedido'] = $idPedido;
-            header('Location: ../carrito/carrito_controller.php');
+            header('Location: carrito.php');
             exit();
         } else {
             echo "<script>confirm('Agrega algun producto al carrito antes de abrirlo');</script>";
@@ -65,25 +66,25 @@ if (isset($_POST['abrirCarrito'])) {
 if (isset($_POST['cerrar'])) {
     session_start();
     $_SESSION['usuario'] = '';
-    header("Location: /");
+    header("Location: index.php");
     exit();
 }
 
 if (isset($_POST['volverInicio'])) {
     session_start();
     $_SESSION['usuario'] = $idUsuario;
-    header('Location: /');
+    header('Location: index.php');
     exit();
 }
 
 //cargo la vista
 if ($idUsuario == null) {
-    require_once("../../views/detallesProducto/detallesProductoNoRegistrado_view.php");
+    require_once("./views/detallesProducto/detallesProductoNoRegistrado_view.php");
 } else {
     $tipoUsuario = $dProducto->getTipoUsuario($idUsuario);
     if ($tipoUsuario == "Administrador") {
-        require_once("../../views/detallesProducto/detallesProductoAdmin_view.php");
+        require_once("./views/detallesProducto/detallesProductoAdmin_view.php");
     } else if ($tipoUsuario == "Cliente") {
-        require_once("../../views/detallesProducto/detallesProductoCliente_view.php");
+        require_once("./views/detallesProducto/detallesProductoCliente_view.php");
     }
 }

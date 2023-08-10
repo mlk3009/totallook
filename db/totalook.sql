@@ -81,6 +81,15 @@ CREATE TABLE guarda (
   FOREIGN KEY (idUsuario) REFERENCES usuarios (idUsuario)
 );
 
+CREATE TABLE flayers (
+  idFlayer INT AUTO_INCREMENT,
+  imagenFlayer varchar (100)
+);
+
+INSERT INTO 'flayers' ('imagenFlayer') VALUES
+('/imagenes/imagenesFlayers/descuentoGorras.jpg'),
+('/imagenes/imagenesFlayers/streetwear.jpg');
+
 INSERT INTO `categoria` (`idCategoria`, `Categoria`) VALUES
 (1, 'Básicos'),
 (2, 'Streetwear'),

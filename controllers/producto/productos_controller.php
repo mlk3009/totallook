@@ -1,7 +1,7 @@
 <?php
 
 //Llamada al modelo
-require_once("models/productos_model.php");
+require_once("./models/productos_model.php");
 
 
 
@@ -16,40 +16,40 @@ if (isset($_SESSION['usuario'])) {
 }
 
 if (isset($_POST['registro'])) {
-	header('Location: controllers/ingreso/registro_controller.php');
+	header('Location: registrarse.php');
 	exit();
 }
 
 if (isset($_POST['productos'])) {
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('location: /totallook/controllers/administrador/administrarProductos_controller.php');
+	header('location: administrar_productos.php');
 	exit();
 }
 
 if (isset($_POST['registros'])) {
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('location: /totallook/controllers/administrador/administrarRegistros_controller.php');
+	header('location: administrar_registros.php');
 	exit();
 }
 
 if (isset($_POST['pedidos'])) {
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('location: /totallook/controllers/administrador/administrarPedidos_controller.php');
+	header('location: administrar_pedidos.php');
 	exit();
 }
 
 if (isset($_POST['volverInicio'])) {
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('Location: /totallook/');
+	header('Location: index.php');
 	exit();
 }
 
 if (isset($_POST['iniciar'])) {
-	header('Location: controllers/ingreso/inicioSesion_controller.php');
+	header('Location: iniciar_sesion.php');
 	exit();
 }
 
@@ -57,7 +57,8 @@ if (isset($_POST['abrirProducto'])) {
 	$idProducto = $_POST['detallesProducto'];
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('Location: controllers/producto/detallesProducto_controller.php?detallesProducto=' . urlencode($idProducto));
+	$_SESSION['producto'] = $idProducto;
+	header('Location: producto.php');
 	exit();
 }
 
@@ -69,7 +70,7 @@ if (isset($_POST['abrirCarrito'])) {
 			$idPedido = $producto->getIdPedido($idUsuario);
 			session_start();
 			$_SESSION['pedido'] = $idPedido;
-			header('Location: /totallook/controllers/carrito/carrito_controller.php');
+			header('Location: carrito.php');
 			exit();
 		} else {
 			echo "<script>confirm('Agrega un producto al carrito antes de abrirlo');</script>";
@@ -86,7 +87,7 @@ if (isset($_POST['abrirPedidos'])) {
 	if ($idPedidoExistente) {
 		session_start();
 		$_SESSION['usuario'] = $idUsuario;
-		header('Location: /totallook/controllers/pedidos/historialPedidos_controller.php');
+		header('Location: historial_pedidos.php');
 		exit();
 	} else {
 		echo "<script>confirm('Realiza un pedido antes de ingresar al historial');</script>";
@@ -139,21 +140,21 @@ if (isset($_POST['buscador'])) {
 if (isset($_POST['cerrar'])) {
 	session_start();
 	$_SESSION['usuario'] = '';
-	header("Location: /");
+	header("Location: index.php");
 	exit();
 }
 
 if ($idUsuario == null) {
-	require_once("views/productos/productos_view.php");
+	require_once("./views/productos/productos_view.php");
 } else {
 	$tipoUsuario = $producto->getTipoUsuario($idUsuario);
 	$notificacion = $producto->getEstadoPedido($idUsuario);
 	if ($tipoUsuario == "Administrador") {
-		require_once("views/productos/productosAdmin_view.php");
+		require_once("./views/productos/productosAdmin_view.php");
 	} else if ($tipoUsuario == "Cliente") {
 		if ($producto->getEstadoPedido($idUsuario)) {
 			echo "<script>confirm('Tiene un pedido listo para levantar!')</script>";
 		}
-		require_once("views/productos/productosClient_view.php");
+		require_once("./views/productos/productosClient_view.php");
 	}
 }

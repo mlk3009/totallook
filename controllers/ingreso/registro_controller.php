@@ -1,6 +1,6 @@
 <?php
 //Llamada al modelo
-require_once("../../models/registro_model.php");
+require_once("./models/registro_model.php");
 
 
 //Creamos un objeto de la clase UsuarioModel
@@ -9,13 +9,13 @@ $controlador = new RegistroUsuarioModel();
 
 if (isset($_POST['iniciar'])) {
     $idProducto = $_POST['detallesProducto'];
-    header('Location: inicioSesion_controller.php?detallesProducto=' . urlencode($idProducto));
+    header('Location: iniciar_sesion.php');
     exit();
 }
 
 if (isset($_POST['volverInicio'])) {
 
-    header('location: /');
+    header('location: index.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ if (isset($_POST['Registrar'])) {
         $idUsuario = $controlador->getIdUsuario($correo);
         session_start();
         $_SESSION['usuario'] = $idUsuario;
-        header('location: /');
+        header('location: index.php');
         exit();
     } else {
         echo "<script>alert('Los datos ingresados son incorrectos.');window.location.href = window.location.href;</script>";
@@ -39,4 +39,4 @@ if (isset($_POST['Registrar'])) {
 }
 
 
-require_once("../../views/ingreso/register_view.php");
+require_once("./views/ingreso/register_view.php");

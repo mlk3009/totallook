@@ -73,10 +73,10 @@ INSERT INTO `productos` (`Nombre`, `idCategoria`, `Precio`, `Stock`, `Color`, `T
 ('Remera Polo Simple', 1, 3490, 3, 'Rojo', 'L', 'Activo','/imagenes/imagenesProductos/Remera Polo.png'),
 
 
-('Pantalon Polo', 1, 5690, 3, 'Gris', 'M', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
-('Pantalon Polo', 1, 5690, 3, 'Negro', 'M', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
-('Pantalon Polo', 1, 5690, 3, 'Gris', 'L', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
-('Pantalon Polo', 1, 5690, 3, 'Negro', 'L', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
+('Pantalon Polo', 2, 5690, 3, 'Gris', 'M', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
+('Pantalon Polo', 2, 5690, 3, 'Negro', 'M', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
+('Pantalon Polo', 2, 5690, 3, 'Gris', 'L', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
+('Pantalon Polo', 2, 5690, 3, 'Negro', 'L', 'Activo','/imagenes/imagenesProductos/Pantalon Polo.png'),
 
 ('Pantalon Casual', 3, 990, 3, 'Gris', 'S', 'Activo','/imagenes/imagenesProductos/Pantalon Basic.png'),
 ('Pantalon Casual', 3, 990, 3, 'Negro', 'S', 'Activo','/imagenes/imagenesProductos/Pantalon Basic.png'),

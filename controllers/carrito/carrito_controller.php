@@ -1,5 +1,5 @@
 <?php
-require_once("../../models/carrito_model.php");
+require_once("./models/carrito_model.php");
 
 $carrito = new carrito_model();
 
@@ -22,7 +22,7 @@ if (isset($_POST['volverInicio'])) {
     $idUsuario = $carrito->getIdUsuario($idPedido);
     session_start();
     $_SESSION['oculto'] = $idUsuario;
-    header('location: /');
+    header('location: index.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ if (isset($_POST['cancelarPedido'])) {
     $carrito->cancelarpedido($idPedido);
     session_start();
     $_SESSION['oculto'] = $idUsuario;
-    header('location: /');
+    header('location: index.php');
     exit();
 }
 
@@ -39,11 +39,11 @@ if (isset($_POST['ordenarPedido'])) {
     $idUsuario = $carrito->getIdUsuario($idPedido);
     $carrito->confirmarPedido($idUsuario);
     //Necesitaria confirmar que se registro el pedido
-    header('location: /');
+    header('location: index.php');
     exit();
 }
 
 
 
 // Cargar la vista
-require_once('../../views/carrito/carrito_view.php');
+require_once('./views/carrito/carrito_view.php');

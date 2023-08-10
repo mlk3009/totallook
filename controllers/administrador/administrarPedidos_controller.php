@@ -1,5 +1,5 @@
 <?php
-require_once("../../models/administrador/administrarPedidos_model.php");
+require_once("./models/administrador/administrarPedidos_model.php");
 
 $Apedidos = new administrarPedidos_model();
 
@@ -20,7 +20,7 @@ foreach ($pedidos as $pedido) {
 if (isset($_POST['volverInicio'])) {
     session_start();
     $_SESSION['usuario'] = $idUsuario;
-    header('location: /');
+    header('location: index.php');
     exit();
 }
 
@@ -35,4 +35,4 @@ if (isset($_POST['levantado'])) {
 }
 
 // Pasar las variables a la vista
-require_once('../../views/administrador/administrarPedidos_view.php');
+require_once('./views/administrador/administrarPedidos_view.php');

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../models/administrador/administrarProductos_model.php");
+require_once("./models/administrador/administrarProductos_model.php");
 $productoMod = new administrarProductos_model();
 $productoMod2 = new administrarProductos_model();
 $productoMod3 = new administrarProductos_model();
@@ -13,7 +13,7 @@ if (isset($_SESSION['usuario'])) {
 }
 
 if (isset($_POST['agregarProducto'])) {
-	require_once('../../views/administrador/administrarProductos/agregarProducto_view.php'); //agregar para que cargue con el id
+	require_once('/views/administrador/administrarProductos/agregarProducto_view.php'); //agregar para que cargue con el id
 	exit();
 }
 
@@ -46,7 +46,7 @@ if (isset($_POST['guardar'])) {
 if (isset($_POST['volverInicio'])) {
 	session_start();
 	$_SESSION['oculto'] = $idUsuario;
-	header('location: /');
+	header('location: index.php');
 	exit();
 }
 
@@ -54,7 +54,7 @@ if (isset($_POST['volverInicio'])) {
 if (isset($_POST['modificar'])) {
 	$Nombre = $_POST["Nombre"];
 	$datos = $productoMod2->getModProductosList($Nombre);
-	require_once('../../views/administrador/administrarProductos/modificarProducto_view.php');
+	require_once('./views/administrador/administrarProductos/modificarProducto_view.php');
 	exit();
 }
 
@@ -85,4 +85,4 @@ if (isset($_POST['agregarOtroProducto'])) {
 	$productoMod2->agregarOtroProducto($addstock, $addcolor, $addtalle, $nombre, $idcategoria, $precio, $estado, $imagen);
 }
 
-require_once('../../views/administrador/administrarProductos_view.php');
+require_once('./views/administrador/administrarProductos_view.php');

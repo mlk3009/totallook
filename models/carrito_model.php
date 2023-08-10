@@ -1,5 +1,5 @@
 <?php
-require_once('../../db/conectar.php');
+require_once('./db/conectar.php');
 
 class carrito_model
 {

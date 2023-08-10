@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../models/administrador/administrarRegistros_model.php");
+require_once("./models/administrador/administrarRegistros_model.php");
 $usuariosEnEspera = new administrarRegistros_model();
 
 
@@ -14,7 +14,7 @@ $datos = $usuariosEnEspera->getRegistros();
 if (isset($_POST['volverInicio'])) {
 	session_start();
 	$_SESSION['usuario'] = $idUsuario;
-	header('location: /');
+	header('location: index.php');
 	exit();
 }
 
@@ -36,4 +36,4 @@ if (isset($_POST['denegar'])) {
 	exit();
 }
 
-require_once('../../views/administrador/administrarRegistros_view.php');
+require_once('./views/administrador/administrarRegistros_view.php');
