@@ -10,13 +10,12 @@ $dProducto = new detallesProducto_model();
 session_start();
 if (isset($_SESSION['usuario'])) {
     $idUsuario = $_SESSION['usuario'];
-    $detallesProducto = $_SESSION['producto'];
 } else {
     $idUsuario = null;
 }
 
 //obtener idProducto del otro controlador
-
+$detallesProducto = $_SESSION['producto'];
 
 //cargar los datos del producto
 $producto = $dProducto->getProducto($detallesProducto);

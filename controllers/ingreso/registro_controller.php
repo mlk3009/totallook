@@ -31,7 +31,7 @@ if (isset($_POST['Registrar'])) {
         $idUsuario = $controlador->getIdUsuario($correo);
         session_start();
         $_SESSION['usuario'] = $idUsuario;
-        header('location: index.php');
+        header('location: listado_productos.php');
         exit();
     } else {
         echo "<script>alert('Los datos ingresados son incorrectos.');window.location.href = window.location.href;</script>";

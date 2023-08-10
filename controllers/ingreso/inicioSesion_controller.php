@@ -20,7 +20,7 @@ if (isset($_POST['Iniciar'])) {
         $idUsuario = $controlador->obtenerId($usuario);
         session_start();
         $_SESSION['usuario'] = $idUsuario;
-        header('location: index.php');
+        header('location: listado_productos.php');
         exit();
     } else {
         echo "<script>alert('Los datos ingresados son incorrectos.');window.location.href = window.location.href;</script>";
