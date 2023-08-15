@@ -47,12 +47,13 @@ CREATE TABLE Productos (
   Stock INT,
   Estado VARCHAR(50),
   CHECK (Estado IN ('Activo', 'Inactivo')),
-  Descripcion VARCHAR(50),
   Talle VARCHAR(15),
   Color VARCHAR(50),
-  Imagen varchar(100),
+  Imagen VARCHAR(100),
   PRIMARY KEY (idProducto),
-  FOREIGN KEY (idCategoria) REFERENCES Categoria (idCategoria)
+  FOREIGN KEY (idCategoria) REFERENCES Categoria (idCategoria);
+  NuevoPrecio INT DEFAULT 0;
+  Descuento INT DEFAULT 0;
 );
 
 CREATE TABLE Pedidos (

@@ -74,6 +74,7 @@
                 <th><p>Nombre</p></th>
                 <th><p>Categoría</p></th>
                 <th><p>Precio</p></th>
+                <th><p>Con descuento</p></th>
                 <th><p>Estado</p></th>
                 <th><p>Acciones</p></th>
             </tr>";
@@ -96,6 +97,7 @@
                 <td>" . $dato["Nombre"] . "</td>
                 <td>" . $dato["Categoria"] . "</td>
                 <td>$ " . $dato["Precio"] . "</td>
+                <td>$ " . $dato["nuevoPrecio"] . "</td>
                 <td>" . $dato["Estado"] . "</td>
                 <td>
                 
@@ -106,6 +108,11 @@
                     <form action='' method='post'>
                         <input type='hidden' name='Nombre' value='" . $dato["Nombre"] . "'>
                         <input type='submit' name='$nombreControlador' value='$EstadoProducto'>
+                    </form>
+                    <form action='' method='post'>
+                        <input type='hidden' name='Nombre' value='" . $dato["Nombre"] . "'>
+                        <input type='number' name='descuento' placeholder='X%'>
+                        <input type='submit' name='agregar descuento' value='agregarDescuento'>
                     </form>
                 </td>
             </tr>";

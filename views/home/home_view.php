@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/productosView.css">
+    <link rel="stylesheet" href="/styles/homeView.css">
     <title>Total Look</title>
 </head>
 
@@ -52,13 +52,13 @@
             <?php
             foreach ($datos as $dato) {
                 echo "<div class='flayer'>
-        <img src='" . $dato['imagenFlayer'] . "' width='200'/>
-            <div class='button_container'>   
-                <form action='' method='post'>
-                    <!-- Aquí puedes agregar los elementos de tu formulario si es necesario -->
-                </form>
-            </div>
-        </div>";
+                    <img  class='imagenFlayer' src='" . $dato['imagenFlayer'] . "' width='200'/>
+                    <div class='button_container'>   
+                        <form action='' method='post'>
+                            <!-- Aquí puedes agregar los elementos de tu formulario si es necesario -->
+                        </form>
+                    </div>
+                </div>";
             }
             ?>
         </div>

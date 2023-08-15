@@ -113,9 +113,7 @@ class administrarProductos_model
 
 	public function getProductosList()
 	{
-		//	$query = "SELECT MIN(idProducto) AS idProducto, MIN(Nombre) AS Nombre, MIN(idCategoria) AS idCategoria, MIN(Precio) AS Precio FROM Productos GROUP BY Imagen;";
-		// Tambien cambiar Categoria por idCategoria en el view de administracion
-		$query = "SELECT Productos.Imagen, MIN(idProducto) AS idProducto, MIN(Nombre) AS Nombre, Categoria.Categoria, MIN(Precio) AS Precio, MIN(Estado) AS Estado
+		$query = "SELECT Productos.Imagen, MIN(idProducto) AS idProducto, MIN(Nombre) AS Nombre, Categoria.Categoria, MIN(Precio) AS Precio, MIN(Estado) AS Estado, MIN(nuevoPrecio) AS nuevoPrecio
 			FROM Productos
 			JOIN Categoria ON Productos.idCategoria = Categoria.idCategoria
 			GROUP BY Productos.Imagen, Categoria.Categoria;";
@@ -130,11 +128,6 @@ class administrarProductos_model
 
 	public function getModProductosList($Nombre)
 	{
-		// Probar este en la UTU
-		// $query = "SELECT Productos.Imagen, idProducto, Nombre, Categoria.Categoria, Precio, Estado, Stock, Color, Talle, Productos.idCategoria
-		// FROM Productos
-		// JOIN Categoria ON Productos.idCategoria = Categoria.idCategoria
-		// WHERE Nombre = '$Nombre' GROUP BY Color, Talle;";
 		$query = "SELECT Productos.Imagen, idProducto, Nombre, Categoria.Categoria, Precio, Estado, Stock, Color, Talle, Productos.idCategoria
 			FROM Productos
 			JOIN Categoria ON Productos.idCategoria = Categoria.idCategoria
@@ -173,7 +166,7 @@ class administrarProductos_model
 
 		if ($this->db->query($query)) {
 
-			header("Location: ");
+			header("Location: " . $_SERVER['PHP_SELF']);
 			exit;
 
 			return true;
@@ -198,13 +191,57 @@ class administrarProductos_model
 		echo "imagen: " . $imagen . "<br>";
 
 		// Resto del código
-		$query = "INSERT INTO Productos (Nombre, idCategoria, Precio, Stock, Estado, Talle, Color, Imagen)
-			VALUES ('$nombre', '$idcategoria', '$precio', '$addstock', '$estado', '$addtalle', '$addcolor', '$imagen');";
+		$query = "INSERT INTO Productos (Nombre, idCategoria, Precio, Stock, Estado, Talle, Color, Imagen, descuento, nuevoPrecio)
+			VALUES ('$nombre', '$idcategoria', '$precio', '$addstock', '$estado', '$addtalle', '$addcolor', '$imagen', '', '');";
 
 		if ($this->db->query($query)) {
 			header("Location: " . $_SERVER['PHP_SELF']);
 			exit;
 			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function enDescuentos($descuento, $nombre)
+	{
+		$descuento = $this->db->real_escape_string($descuento);
+		$nombre = $this->db->real_escape_string($nombre);
+
+		$query = "UPDATE Productos SET descuento = '$descuento' WHERE Nombre = '$nombre'";
+
+		if ($this->db->query($query)) {
+			header("Location: " . $_SERVER['PHP_SELF']);
+			exit;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function setNuevoPrecio($descuento, $nombre)
+	{
+		$descuento = $this->db->real_escape_string($descuento);
+		$nombre = $this->db->real_escape_string($nombre);
+
+		// Obtener el precio actual del producto
+		$query = "SELECT Precio FROM Productos WHERE Nombre = '$nombre'";
+		$result = $this->db->query($query);
+
+		if ($result && $result->num_rows > 0) {
+			$row = $result->fetch_assoc();
+			$precioActual = $row['Precio'];
+
+			$nuevoPrecio = $precioActual * (1 - ($descuento / 100));
+
+			$updateQuery = "UPDATE Productos SET nuevoPrecio = '$nuevoPrecio' WHERE Nombre = '$nombre'";
+			if ($this->db->query($updateQuery)) {
+				return true;
+				header("Location: " . $_SERVER['PHP_SELF']);
+				exit;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}

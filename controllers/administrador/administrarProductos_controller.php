@@ -85,4 +85,11 @@ if (isset($_POST['agregarOtroProducto'])) {
 	$productoMod2->agregarOtroProducto($addstock, $addcolor, $addtalle, $nombre, $idcategoria, $precio, $estado, $imagen);
 }
 
+if (isset($_POST['agregarDescuento'])) {
+	$nombre = $_POST['Nombre'];
+	$descuento = $_POST['descuento'];
+	$productoMod2->enDescuentos($descuento, $nombre);
+	$productoMod2->setNuevoPrecio($descuento, $nombre);
+}
+
 require_once('./views/administrador/administrarProductos_view.php');
