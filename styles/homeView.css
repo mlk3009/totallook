@@ -232,15 +232,17 @@ header p{
 
 /* MAIN */
 
-.flayer{
-    margin-top: 12vh;
-    height: calc(100vh - 12vh);
+.flayer {
+    margin-top: 80px;
+    height: calc(100vh - 80px);
     width: 100%;
     background-color: black;
     padding: 20px;
     box-sizing: border-box;
-    /* overflow: auto; */
-}
+    background-image: url(/path/to/banner-image.jpg);
+    background-size: cover;
+    background-position: center;
+  }
 .imagenFlayer{
     width: 100%;
     height: 100%;

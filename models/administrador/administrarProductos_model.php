@@ -192,7 +192,7 @@ class administrarProductos_model
 
 		// Resto del código
 		$query = "INSERT INTO Productos (Nombre, idCategoria, Precio, Stock, Estado, Talle, Color, Imagen, descuento, nuevoPrecio)
-			VALUES ('$nombre', '$idcategoria', '$precio', '$addstock', '$estado', '$addtalle', '$addcolor', '$imagen', '', '');";
+			VALUES ('$nombre', '$idcategoria', '$precio', '$addstock', '$estado', '$addtalle', '$addcolor', '$imagen', '', '$precio');";
 
 		if ($this->db->query($query)) {
 			header("Location: " . $_SERVER['PHP_SELF']);
@@ -211,8 +211,6 @@ class administrarProductos_model
 		$query = "UPDATE Productos SET descuento = '$descuento' WHERE Nombre = '$nombre'";
 
 		if ($this->db->query($query)) {
-			header("Location: " . $_SERVER['PHP_SELF']);
-			exit;
 			return true;
 		} else {
 			return false;
@@ -237,8 +235,6 @@ class administrarProductos_model
 			$updateQuery = "UPDATE Productos SET nuevoPrecio = '$nuevoPrecio' WHERE Nombre = '$nombre'";
 			if ($this->db->query($updateQuery)) {
 				return true;
-				header("Location: " . $_SERVER['PHP_SELF']);
-				exit;
 			} else {
 				return false;
 			}

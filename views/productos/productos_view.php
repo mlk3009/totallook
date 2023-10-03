@@ -156,16 +156,16 @@
                     <img src='" . $dato['Imagen'] . "' width='200'/>
                     <div class='product_text'>
                     <div class='product_info'>
-                        <p>" . $dato["Nombre"] . "</p>
-                        <p> $ " . $dato["Precio"] . "</p>
-                    </div>
+                        <p>" . $dato["Nombre"] . "</p>";
+                echo "<p> $" . $dato["Precio"] . "</p>";
+                echo "</div>
                     <div class='button_container'>   
                         <form action='' method='post'>
                         <input style='Display: none;' type='text' name='detallesProducto' value='" . $dato["idProducto"] . "'>
                         <input type='submit' name='abrirProducto' value='Ver más' class='abrirProducto'>
+                        </form>
                     </div>
                     </div>
-                    </form>
                 </div>";
             }
             ?>

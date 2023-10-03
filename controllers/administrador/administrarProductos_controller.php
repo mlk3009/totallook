@@ -88,8 +88,13 @@ if (isset($_POST['agregarOtroProducto'])) {
 if (isset($_POST['agregarDescuento'])) {
 	$nombre = $_POST['Nombre'];
 	$descuento = $_POST['descuento'];
-	$productoMod2->enDescuentos($descuento, $nombre);
-	$productoMod2->setNuevoPrecio($descuento, $nombre);
+	$productoMod->enDescuentos($descuento, $nombre);
+	$productoMod->setNuevoPrecio($descuento, $nombre);
+}
+
+if (isset($_POST['eliminarDescuento'])) {
+	$nombre = $_POST['Nombre'];
+	$productoMod->setNuevoPrecio(0, $nombre);
 }
 
 require_once('./views/administrador/administrarProductos_view.php');

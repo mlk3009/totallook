@@ -52,8 +52,6 @@ CREATE TABLE Productos (
   Imagen VARCHAR(100),
   PRIMARY KEY (idProducto),
   FOREIGN KEY (idCategoria) REFERENCES Categoria (idCategoria);
-  NuevoPrecio INT DEFAULT 0;
-  Descuento INT DEFAULT 0;
 );
 
 CREATE TABLE Pedidos (

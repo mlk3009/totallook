@@ -111,8 +111,12 @@
                     </form>
                     <form action='' method='post'>
                         <input type='hidden' name='Nombre' value='" . $dato["Nombre"] . "'>
-                        <input type='number' name='descuento' placeholder='X%'>
-                        <input type='submit' name='agregar descuento' value='agregarDescuento'>
+                        <input type='number' name='descuento' placeholder='X%' required>
+                        <input type='submit' name='agregarDescuento' value='agregar descuento'>
+                    </form>
+                    <form action='' method='post'>
+                        <input type='hidden' name='Nombre' value='" . $dato["Nombre"] . "'>
+                        <input type='submit' name='eliminarDescuento' value='eliminar descuento'>
                     </form>
                 </td>
             </tr>";

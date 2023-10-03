@@ -38,7 +38,7 @@ class productos_model
 	public function getProductos()
 	{
 		//	$sql = "SELECT idProducto, Imagen, Nombre, Precio, Color  FROM Productos group by Imagen" ;
-		$sql = "SELECT Imagen, MIN(idProducto) AS idProducto, MIN(Nombre) AS Nombre, MIN(Precio) AS Precio, MIN(Color) AS Color FROM Productos where Estado = 'Activo' GROUP BY Imagen";
+		$sql = "SELECT Imagen, MIN(idProducto) AS idProducto, MIN(Nombre) AS Nombre, MIN(Precio) AS Precio, MIN(Color) AS Color  FROM Productos where Estado = 'Activo' GROUP BY Imagen";
 
 		$consulta = $this->db->query($sql);
 
